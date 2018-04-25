@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.contenedorPrincipal {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/Maracaibo.png);
+    transition: all 0.2s ease-in-out;
+
+}
+
+.wrapperContPrincipal {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+    background-color: white;
+}
+
+.navegadorPrincipal {
+    display: flex;
+    list-style: none;
+    margin-right: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+.menuLink {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    display: inline-block;
+    padding: 15px 10px;
+    margin: 15px 5px;
+    margin-right: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.menuLink:hover {
+    color: #EA4E4F;
+}
+
+#signUp:hover {
+    background-color: #AA3939;
+    color: #ffff;
+}
+
+#signUp {
+    border: 0px solid black;
+    border-radius: 3px;
+    color: #ffff;
+    background-color: #EA4E4F;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+}
+
+.Logo {
+    height: 80px;
+    margin: 0 10px;
+}
+
+/*/////////////////////////////////SELECTOR/////////////////////////////////*/
+
+.center-on-page {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #EA4E4F;
+    background-image: none;
+}
+
+.select {
+    position: relative;
+    display: block;
+    width: 45em;
+    height: 4em;
+    line-height: 3;
+    background: #EA4E4F;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+select {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 0 .5em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 22px;
+    font-family: 'Raleway', sans-serif;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.4em 1em;
+    background: #EA4E4F;
+    pointer-events: none;
+    color: #ffff;
+}
+
+option {
+    font-size: 22px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.select:hover::after {
+    color: #000;
+}
+
+.select::after {
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
