@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta charset="UTF-8">
     <title>A Comer!</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -12,10 +14,15 @@
             <div class="wrapperLogo">
                 <img src="img/logo.png" alt="" class="Logo">
             </div>
-            <nav class="navegadorPrincipal">
+            <div class="iconWrapper">
+            <input type="checkbox" id="checkMenu" onchange="holi(this)">
+            <label for="checkMenu" class="icon-menu"></label>
+            </div>
+            <nav class="navegadorPrincipal" id="nav">
                 <li class="menuItem"><a href="" class="menuLink" id="signUp">REGISTRARSE</a></li>
                 <li class="menuItem"><a href="" class="menuLink">INGRESAR</a></li>
             </nav>
+            
         </div>
         <div class="center-on-page">
         <div class="select">
@@ -30,8 +37,14 @@
         </div>
         </div>
     </div>
-    <div class="footer">
-    </div>
+    <footer>
+        <div class="contFooter">
+           <div class="contIcon"><i class="icon-instagram"></i><span>@A_COMER!</span></div>
+           <div class="contIcon"><i class="icon-twitter"></i><span>@A_COMER!</span></div>
+           <div class="contIcon"><i class="icon-phone"></i><span>+58 414-6242580</span></div>
+            <p class="rights">2018 &copy; Empresa Gastronomica C.A. Todos los derechos reservados</p>
+        </div>
+    </footer>
     <script src="js/index.js"></script>
 </body>
 </html>

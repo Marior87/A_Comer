@@ -8,15 +8,15 @@
 
 .contenedorPrincipal {
     width: 100%;
-    height: 100vh;
+    height: 864px;
     background-image: url(../img/Maracaibo.png);
     transition: all 0.2s ease-in-out;
-
 }
 
 .wrapperContPrincipal {
     display: flex;
     position: fixed;
+    z-index: 2000;
     justify-content: space-between;
     width: 100%;
     height: 80px;
@@ -66,12 +66,64 @@
     height: 80px;
     margin: 0 10px;
 }
+.iconWrapper {
+    position: absolute;
+    left: 89%;
+    padding: 25px;
+    display: none;
+}
 
+.icon-menu {
+    font-size: 30px;
+    cursor: pointer;
+}
+#checkMenu {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .navegadorPrincipal {
+        display: block;
+        background:rgba(0, 0, 0, 0.7);
+        position: static;
+        max-width: 100%;
+        width: 50%;
+        margin: 0;
+        margin-top: 80px;
+        height: 100vh;
+        text-align: center;
+        transform: translateX(100%);
+    }
+    #signUp {
+        background-color: transparent;
+        border-bottom: 2px solid #EA4E4F;
+        margin-top: 80px;
+    }
+    .menuLink {
+        color: #fff;
+        display: block;
+        border-bottom: 2px solid #EA4E4F;
+        padding: 25px;
+        margin: 0;
+    }
+    #signUp:hover {
+        background-color: #EA4E4F;
+        color: white;
+    }
+    .menuLink:hover {
+        background-color: #EA4E4F;
+        color: white;
+    }
+    .iconWrapper {
+        display: block;
+        z-index: 1000;
+    }
+}
 /*/////////////////////////////////SELECTOR/////////////////////////////////*/
 
 .center-on-page {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -120,7 +172,7 @@ select::-ms-expand {
     top: 0;
     right: 0;
     bottom: 0;
-    padding: 0.4em 1em;
+    padding: 0.5em 1em;
     background: #EA4E4F;
     pointer-events: none;
     color: #ffff;
@@ -139,4 +191,37 @@ option {
     -webkit-transition: .25s all ease;
     -o-transition: .25s all ease;
     transition: .25s all ease;
+}
+@media (max-width: 800px) {
+    select {
+        font-size: 18px;
+    }
+    .select {
+        width: 30em;
+    }
+}
+/*////////////////////////////////////FOOTER////////////////////////////////////////*/
+footer {
+    width: 100%;
+}
+.contFooter {
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    flex-flow: column;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    border-top: 4px solid #EA4E4F;
+}
+.contFooter span {
+    padding: 10px;
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+}
+.contFooter p {
+    color: dimgray;
+    font-size: 14px;
+    padding: 10px;
+    display: block;
 }

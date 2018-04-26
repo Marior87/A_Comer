@@ -26,3 +26,18 @@ switch(selector.selectedIndex) {
         break;
 }
 }
+//////////////////////////////////////////////////////////////
+var menu = document.getElementById('checkMenu');
+var nav = document.getElementById('nav');
+
+function holi(menu) {
+    if (menu.checked){
+        nav.style.transform = 'translateX(0%)';
+    } else {
+        nav.style.transform = 'translateX(100%)';
+    }
+}
+
+
+
+
