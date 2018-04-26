@@ -1,6 +1,6 @@
 var selector = document.getElementById("slct");
 var contPrincipal = document.getElementById("principal");
-function seleccion() {
+function seleccion(selector) {
 
 switch(selector.selectedIndex) {
     case 0:
@@ -30,7 +30,7 @@ switch(selector.selectedIndex) {
 var menu = document.getElementById('checkMenu');
 var nav = document.getElementById('nav');
 
-function holi(menu) {
+function mostrar(menu) {
     if (menu.checked){
         nav.style.transform = 'translateX(0%)';
     } else {
