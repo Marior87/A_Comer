@@ -66,6 +66,7 @@
     height: 80px;
     margin: 0 10px;
 }
+
 .iconWrapper {
     position: absolute;
     left: 89%;
@@ -77,6 +78,7 @@
     font-size: 30px;
     cursor: pointer;
 }
+
 #checkMenu {
     display: none;
 }
@@ -84,10 +86,10 @@
 @media (max-width: 800px) {
     .navegadorPrincipal {
         display: block;
-        background:rgba(0, 0, 0, 0.7);
-        position: static;
+        background: rgba(0, 0, 0, 0.7);
+        position: absolute;
         max-width: 100%;
-        width: 50%;
+        width: 100%;
         margin: 0;
         margin-top: 80px;
         height: 100vh;
@@ -119,6 +121,26 @@
         z-index: 1000;
     }
 }
+
+@media (max-width: 550px) {
+    .iconWrapper {
+        left: 85%;
+    }
+    .Logo {
+        margin: 0;
+        height: 60px;
+        margin-top: 8px;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .iconWrapper {
+        left: 80%;
+    }
+
+}
+
 /*/////////////////////////////////SELECTOR/////////////////////////////////*/
 
 .center-on-page {
@@ -192,6 +214,7 @@ option {
     -o-transition: .25s all ease;
     transition: .25s all ease;
 }
+
 @media (max-width: 800px) {
     select {
         font-size: 18px;
@@ -200,10 +223,24 @@ option {
         width: 30em;
     }
 }
+
+@media (max-width: 550px) {
+    .select {
+        width: 20em;
+    }
+}
+@media (max-width: 400px) {
+    .select {
+        width: 16em;
+    }
+}
+
 /*////////////////////////////////////FOOTER////////////////////////////////////////*/
+
 footer {
     width: 100%;
 }
+
 .contFooter {
     display: flex;
     font-family: 'Raleway', sans-serif;
@@ -213,23 +250,27 @@ footer {
     color: #fff;
     border-top: 4px solid #EA4E4F;
 }
+
 .contFooter span {
     padding: 10px;
     display: block;
     font-size: 15px;
     font-weight: 600;
 }
+
 .contFooter p {
     color: dimgray;
     font-size: 14px;
     padding: 10px;
     display: block;
 }
+
 .contIcon {
     display: flex;
     justify-content: center;
     font-size: 20px;
 }
+
 i {
     padding: 10px;
 }
