@@ -4,25 +4,25 @@ function seleccion(selector) {
 
 switch(selector.selectedIndex) {
     case 0:
-        contPrincipal.style.backgroundImage = "url('../img/Maracaibo.png')";
+        contPrincipal.style.backgroundImage = "url('Maracaibo.png')";
         break;
     case 1:
-        contPrincipal.style.backgroundImage = "url('../img/Maracaibo.png')";
+        contPrincipal.style.backgroundImage = "url('Maracaibo.png')";
         break;
     case 2:
-        contPrincipal.style.backgroundImage = "url('../img/Caracas.png')";
+        contPrincipal.style.backgroundImage = "url('Caracas.png')";
         break;
     case 3:
-        contPrincipal.style.backgroundImage = "url('../img/SanCristobal.png')";
+        contPrincipal.style.backgroundImage = "url('SanCristobal.png')";
         break;
     case 4:
-        contPrincipal.style.backgroundImage = "url('../img/Barquisimeto.png')";
+        contPrincipal.style.backgroundImage = "url('Barquisimeto.png')";
         break;
     case 5:
-        contPrincipal.style.backgroundImage = "url('../img/Margarita.png')";
+        contPrincipal.style.backgroundImage = "url('Margarita.png')";
         break;
     default:
-        contPrincipal.style.backgroundImage = "url('../img/Maracaibo.png')";
+        contPrincipal.style.backgroundImage = "url('Maracaibo.png')";
         break;
 }
 }
