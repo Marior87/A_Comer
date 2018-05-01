@@ -8,8 +8,7 @@
 
 .contenedorPrincipal {
     width: 100%;
-    height: 864px;
-    background-image: url(Maracaibo.png);
+    position: absolute;
     transition: all 0.2s ease-in-out;
 }
 
@@ -131,18 +130,45 @@
         height: 60px;
         margin-top: 8px;
     }
-
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .iconWrapper {
         left: 80%;
+    }
+    .Logo {
+        margin: 0;
+        height: 40px;
+        margin-top: 4px;
+    }
+    .icon-menu {
+        font-size: 20px;
+    }
+    .wrapperContPrincipal {
+        height: 50px
+    }
+    .iconWrapper {
+        padding: 15px;
+        left: 85%;
+    }
+    .navegadorPrincipal {
+        margin-top: 50px;
+    }
+    #signUp {
+        margin-top: 0;
     }
 
 }
 
 /*/////////////////////////////////SELECTOR/////////////////////////////////*/
-
+.imgPortada {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    z-index: -1;
+    
+}
 .center-on-page {
     position: absolute;
     top: 50%;
@@ -228,10 +254,19 @@ option {
     .select {
         width: 20em;
     }
+    .center-on-page {
+        top: 40%;
+    }
 }
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .select {
-        width: 16em;
+        width: 18em;
+        height: 3em;
+    }
+    .select::after {
+        padding: 0;
+        padding-right: 10px;
+        
     }
 }
 
@@ -273,4 +308,20 @@ footer {
 
 i {
     padding: 10px;
+}
+@media (max-width: 500px) {
+    .contFooter span {
+        padding: 5px;
+        font-size: 10;
+    }
+    .contFooter p {
+        font-size: 10px;
+        padding: 5px;
+    }
+    .contIcon {
+        font-size: 15px;
+    }
+    i {
+        padding: 5px;
+    }
 }
