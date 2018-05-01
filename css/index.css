@@ -317,15 +317,15 @@ i {
 }
 @media (max-width: 500px) {
     .contFooter span {
-        padding: 5px;
-        font-size: 10;
+        padding: 4px;
+        font-size: 8px;
     }
     .contFooter p {
-        font-size: 10px;
-        padding: 5px;
+        font-size: 8px;
+        padding: 2px;
     }
     .contIcon {
-        font-size: 15px;
+        font-size: 10px;
     }
     i {
         padding: 5px;
