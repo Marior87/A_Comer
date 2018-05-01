@@ -262,11 +262,17 @@ option {
     .select {
         width: 18em;
         height: 3em;
+        font-size: 14px;
     }
     .select::after {
         padding: 0;
         padding-right: 10px;
-        
+    }
+    select {
+        font-size: 15px;
+    }
+    option {
+        font-size: 15px;
     }
 }
 
