@@ -1,3 +1,15 @@
+const checkbox = document.getElementById('menu');
+const navegador = document.getElementById('navegador');
+
+checkbox.addEventListener('change', function(event) {
+  if (event.target.checked) {
+    navegador.style.transform = "translate(0%)";
+      
+  } else {
+    navegador.style.transform = "translate(100%)";
+  }
+})
+
 var json =  [{
     nombre: 'Mi Ternerita Norte',
     tipo: 'Churrasqueria, Tex-mex',
