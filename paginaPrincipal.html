@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="utf-8">
 <head>
    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta charset="UTF-8">
@@ -51,10 +52,10 @@
     <div class="wrapperRes"  id="app-1">
        <div v-for="res in mejoresRestaurantes" class="container2">
             <div  class="wrapper3" v-on:click="newWindow()">
-                <img v-bind:src="res.img" alt="" class="imgRes">
+                <img v-bind:src="res.ruta_img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">
-                <div v-for="n in res.precio">
+                <div v-for="n in parseInt(res.categoria_precio)">
                     <span><b>$</b></span>
                 </div>
                 <p class="pRes">{{ res.tipo }}</p>
@@ -66,12 +67,12 @@
             <h1 class="infoH1">TOP RESTAURANTES COMIDA RÁPIDA<span>by A COMER!</span></h1>
     </div>
     <div class="wrapperRes"  id="app-2">
-       <div v-for="res in mejoresRestaurantes" v-if="res.tipoRestaurante == 2" class="container2">
+       <div v-for="res in mejoresRestaurantes" v-if="parseInt(res.id_categoria_rest) == 2" class="container2">
             <div  class="wrapper3" v-on:click="newWindow()">
-                <img v-bind:src="res.img" alt="" class="imgRes">
+                <img v-bind:src="res.ruta_img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">
-                <div v-for="n in res.precio">
+                <div v-for="n in parseInt(res.categoria_precio)">
                     <span><b>$</b></span>
                 </div>
                 <p class="pRes">{{ res.tipo }}</p>
@@ -83,12 +84,12 @@
             <h1 class="infoH1">TOP RESTAURANTES CON MEJORES PRECIOS<span>by A COMER!</span></h1>
     </div>
     <div class="wrapperRes"  id="app-3">
-       <div v-for="res in mejoresRestaurantes" v-if="res.precio < 4" class="container2">
+       <div v-for="res in mejoresRestaurantes" v-if="parseInt(res.categoria_precio) < 4" class="container2">
             <div  class="wrapper3" v-on:click="newWindow()">
-                <img v-bind:src="res.img" alt="" class="imgRes">
+                <img v-bind:src="res.ruta_img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">
-                <div v-for="n in res.precio">
+                <div v-for="n in parseInt(res.categoria_precio)">
                     <span><b>$</b></span>
                 </div>
                 <p class="pRes">{{ res.tipo }}</p>

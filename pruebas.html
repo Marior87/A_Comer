@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pruebas</title>
+</head>
+<body>
+
+
+
+
+<script type="text/javascript">
+
+
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () {
+                if(this.readyState == 4 && this.status == 200) {
+                    //var respuesta = JSON.parse(this.response);
+                    //alert(respuesta);
+                }
+        };
+
+xhr.open("GET", "restaurantes.php", true);
+xhr.send();
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
