@@ -1,3 +1,16 @@
+const checkbox = document.getElementById('menu');
+const navegador = document.getElementById('navegador');
+
+checkbox.addEventListener('change', function(event) {
+  if (event.target.checked) {
+    navegador.style.transform = "translate(0%)";
+      
+  } else {
+    navegador.style.transform = "translate(100%)";
+  }
+})
+
+
 
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {

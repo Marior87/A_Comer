@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+    if (isset($_SESSION['nombre'])){
+        $usuario = $_SESSION['nombre'];
+        setcookie('nombreUsuario',$usuario,time()+86400,'/');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
@@ -9,6 +19,7 @@
     <link rel="stylesheet" href="css/paginaPrincipal.css">
 </head>
 <body>
+
     <div class="navegadorWrapper">
         <div class="logoWrapper">
             <img src="img/paginaPrincipal/logoblanco.png" alt="" class="logo">
@@ -24,8 +35,22 @@
                 <li class="menuItem"><a href="" class="menuLink">Búsqueda</a></li>
                 <li class="menuItem"><a href="" class="menuLink">Contacto</a></li>
                 <div class="loginWrapper">
-                    <li class="menuItem"><a href="" class="menuLink">Login</a></li>
-                    <li class="menuItem"><a href="" class="menuLink">Regístrate</a></li>
+                    <?php if (!isset($_SESSION['nombre'])){
+                        echo ('
+
+                        <li class="menuItem"><a href="inicioSesion.html" class="menuLink">Login</a></li>
+                        <li class="menuItem"><a href="registro.html" class="menuLink">Regístrate</a></li>');
+
+                    } else {
+
+                        echo ('
+                        <li class="menuItem"><a href="opciones.php" class="menuLink">Hola '.htmlentities($_SESSION['nombre']).'</a></li>
+                        <li class="menuItem"><a href="cerrarSesion.php" class="menuLink">Cerrar Sesión</a></li>');
+
+                    }
+
+                    ?>
+
                 </div>
             </nav>
         </div>
