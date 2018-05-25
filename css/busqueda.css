@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+* {
+   box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/*//////////////////////////////////////////////MENU//////////////////////////////////////////////*/
+body {
+    overflow-x: hidden;
+}
+.navegadorWrapper {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 80px;
+    background: #fff;
+	box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    z-index: 10000;
+}
+.logo {
+    height: 80px;
+}
+.navegador {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.nav2 {
+    display: flex;
+}
+.nav2 li {
+    list-style: none;
+}
+.nav2 li a {
+    text-decoration: none;
+    color: #000;
+    font-family: 'Raleway', sans-serif;
+    padding: 30px;
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+.loginWrapper {
+    display: flex;
+}
+.loginWrapper li a {
+    color: #EA4E4F;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+
+}
+#menu, .icon-bars {
+    display: none;
+}
+.nav2 li a:hover {
+    color: #EA4E4F;
+}
+.loginWrapper li a:hover {
+    color: #000;
+}
+@media (max-width: 950px) {
+    .nav2, .loginWrapper {
+        display: block;
+        width: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.8);
+        margin: 0;
+    }
+    .navegadorWrapper {
+        justify-content: space-between;
+    }
+    .navegador {
+        position: absolute;
+        transition: all 0.4s ease-in-out;
+        transform: translateX(120%);
+        top: 80px
+    }
+    .contMenu {
+        height: 80px;
+    }
+    .icon-bars {
+        padding: 20px;
+        color: black;
+        font-size: 28px;
+        padding-top: 30px;
+        display: block;
+        position: relative;
+        z-index: 100;
+    }
+    .loginWrapper li a {
+        color: #EA4E4F;
+    }
+    .loginWrapper li a, .nav2 li  a{
+        border-bottom: 1px solid #EA4E4F;
+        padding: 30px;
+        margin: 0;
+        text-align: center;
+    }
+     .loginWrapper li:nth-child(2) {
+        border: none;
+    }
+    .loginWrapper li a:hover , .nav2 li a:hover {
+        background: #EA4E4F;
+    }
+    .loginWrapper li a:hover {
+        color: black;
+    }
+    .nav2 .menuLink2 {
+        color: white;
+    }
+    .nav2 .menuLink2:hover {
+        color: white;
+    }
+}
+/*----------------------------------BUSQUEDA AVANZADA----------------------------*/
+.contenedorBusqueda {
+    background-color: #EA4E4F;
+    padding: 80px;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+}
+.busquedaWrapper {
+    position: relative;
+    padding: 20px;
+    max-width: 100%;
+    height: 100vh;
+    height: 100%;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255 , 0.9);
+}
+.avanzadaHeader {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+.headerRadio {
+    font-family: 'Raleway', sans-serif;
+    margin: 20px 0;
+}
+@media (max-width: 700px){
+    .contenedorBusqueda {
+        padding: 40px;
+    }
+}
+@media (max-width: 550px){
+    .headerRadio {
+        font-size: 20px;
+    }
+}
+@media (max-width: 500px){
+    .avanzadaHeader {
+        font-size: 25px;
+    }
+    .headerRadio {
+        font-size: 18px;
+        margin: 10px;
+    }
+    .busquedaWrapper {
+        padding: 5px;
+    }
+}
+
+/*---------------RADIO ESTILOS-----------------*/
+.radio {
+  margin: 0.5rem;
+}
+
+.radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+.radio input[type="radio"] + .radio-label:before {
+  content: '';
+  background: #f4f4f4;
+  border-radius: 100%;
+  border: 1px solid #b4b4b4;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  position: relative;
+  top: -0.2em;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  transition: all 250ms ease;
+}
+.radio input[type="radio"]:checked + .radio-label:before {
+  background-color: #3197EE;
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+.radio input[type="radio"]:focus + .radio-label:before {
+  outline: none;
+  border-color: #3197EE;
+}
+.radio input[type="radio"]:disabled + .radio-label:before {
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+  border-color: #b4b4b4;
+  background: #b4b4b4;
+}
+.radio input[type="radio"] + .radio-label:empty:before {
+  margin-right: 0;
+}
+.radio-label {
+    font-family: 'Open Sans', sans-serif;
+}
+
+@media (max-width: 550px) {
+    .radio-label {
+        font-size: 14px;
+    }
+}
+@media (max-width: 500px){
+    .radio-label {
+        font-size: 12px;
+    }
+}
+/*-------------------TIPO RESTAURANTE------------------*/
+.container2 {
+    max-width: 100%;
+}
+.wrapperRes {
+    display: flex;
+    overflow: auto;
+    margin: 20px;
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+
+}
+.wrapper3 {
+    width: 400px;
+    margin: 10px;
+    text-align: center;
+    height: 260px;
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+}
+.wrapper3 h1 {
+    color: #EA4E4F;
+}
+.imgRes {
+    width: 100%;
+    display: inline-block;
+}
+.contParrafo {
+    display: flex;
+    justify-content: center;
+}
+.pRes {
+    margin-left: 10px;
+}
+@media (max-width: 620px) {
+    .headerBusqueda {
+        font-size: 35px;
+    }
+    .hRes {
+        font-size: 25px;
+    }
+    .pRes {
+        font-size: 15px;
+    }
+    .contParrafo span {
+        font-size: 15px;
+    }
+    .infoH1 {
+        font-size: 30px;
+    }
+    .infoH1 span {
+        font-size: 13px;
+    }
+    .wrapper3 {
+        width: 300px;
+        height: 240px;
+        margin: 5px;
+    }
+    .imgRes {
+        margin: 5px;
+        width: 90%;
+    }
+}
+@media (max-width: 400px) {
+    .wrapper3 {
+        width: 200px;
+        height: 180px;
+        margin: 5px;
+    }
+    .hRes {
+        font-size: 18px;
+    }
+    .pRes {
+        font-size: 12px;
+    }
+    .imgRes {
+        width: 90%;
+        margin: 5px;
+    }
+}
+
+/*----------------------------------BUSQUEDA AVANZADA----------------------------*/

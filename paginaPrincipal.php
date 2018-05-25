@@ -75,7 +75,7 @@ session_start();
     <img class="imgBusqueda" src="img/paginaPrincipal/busqueda.png" alt="">
     <div class="contenedorBusqueda">
         <h1 class="headerBusqueda">¿QUÉ QUIERES COMER?</h1>
-        <a href="busqueda.html" class="avanzado">Búsqueda Avanzada</a>
+        <a href="busqueda.php" class="avanzado">Búsqueda Avanzada</a>
     </div>
     <div class="contH1">
             <h1 class="infoH1">TOP RESTAURANTES<span>by A COMER!</span></h1>
