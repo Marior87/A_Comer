@@ -1,7 +1,7 @@
 <?php
 
 require 'class-conexion.php';
-
+session_start();
 /**
  *
  */
@@ -33,7 +33,7 @@ class Restaurant
   public function setFavoriteRestaurante($id_restaurant,$id_user)
   {
     //Traemos el id del usuario de la session abierta.
-    $id_user = $id_user;
+    $id_user = $_SESSION['id_usuario'];
 
     //Nos traemos los restaurantes favoritos de ese usuario
 

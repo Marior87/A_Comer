@@ -28,7 +28,7 @@ ini_set('display_errors', 1);
     public function getRestaunrant($id)
     {
 
-      $query = "SELECT * FROM restaurant where id_rest = '{$id}' ";
+      $query = "SELECT * FROM restaurant where id_rest = $id ";
 
       $queryBuscar = $this->mysqli->query($query);
 
@@ -41,7 +41,7 @@ ini_set('display_errors', 1);
     public function getFavoriteRestaurant($id_user)
     {
 
-      $query = "SELECT * FROM restaurant_favoritos where id_user = '{$id_user}' ";
+      $query = "SELECT * FROM restaurant_favoritos where id_usuario = $id_user";
 
       $queryBuscar = $this->mysqli->query($query);
 
@@ -60,7 +60,8 @@ ini_set('display_errors', 1);
     public function insertFavoriteRestaurant($id_user,$data)
     {
 
-      $query = "INSERT INTO restaurant_favoritos (id,id_usuario,restaurantes) VALUES (NULL,{$id_user},'$data');";
+      $query = "INSERT INTO restaurant_favoritos (id,id_usuario,restaurantes) VALUES (NULL,$id_user,'$data');";
+      echo $query;
       $this->mysqli->query($query);
       // if ($this->mysqli->query($query) === TRUE) {
       //     echo "New record created successfully";

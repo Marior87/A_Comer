@@ -31,10 +31,10 @@ session_start();
         </div>
         <div class="navegador" id="navegador">
             <nav class="nav2">
-                <li class="menuItem"><a href="" class="menuLink">Inicio</a></li>
-                <li class="menuItem"><a href="" class="menuLink">Nosotros</a></li>
-                <li class="menuItem"><a href="" class="menuLink">Búsqueda</a></li>
-                <li class="menuItem"><a href="" class="menuLink">Contacto</a></li>
+                <li class="menuItem"><a href="#inicio" class="menuLink">Inicio</a></li>
+                <li class="menuItem"><a href="#nosotros" class="menuLink">Nosotros</a></li>
+                <li class="menuItem"><a href="#busqueda" class="menuLink">Búsqueda</a></li>
+                <li class="menuItem"><a href="#contacto" class="menuLink">Contacto</a></li>
                 <div class="loginWrapper">
                     <?php if (!isset($_SESSION['nombre'])){
                         echo ('
@@ -56,14 +56,14 @@ session_start();
             </nav>
         </div>
     </div>
-     <div class="contenedorPortada">
+     <div class="contenedorPortada" id="inicio">
         <img src="img/paginaPrincipal/portada1.png" alt="" class="imgPortada">
         <div class="conthPortada">
             <h1 class="headerPortada">A COMER!</h1>
             <p class="parrafoPortada">ELIGE TU RESTAURANTE</p>
         </div>
     </div>
-    <div class="contNosotros">
+    <div class="contNosotros" id="nosotros">
             <div class="contTexto">
                 <h1 class="headerNosotros"><span>¿</span>QUIENES SOMOS<span>?</span></h1>
                 <p class="parrafoNosotros"><span>A Comer!</span> Nace de la necesidad de las personas en medio de la ola de cafés y restaurantes en la ciudad por eso creamos un lugar para recomendar a dónde ir, pero que te mostrara las cosas en orden, lo que está cerca de ti y exactamente que vende.</p>
@@ -75,7 +75,7 @@ session_start();
     </div>
     <img class="imgBusqueda" src="img/paginaPrincipal/busqueda.png" alt="">
     <div class="contenedorBusqueda">
-        <h1 class="headerBusqueda">¿QUÉ QUIERES COMER?</h1>
+        <h1 class="headerBusqueda" id="busqueda">¿QUÉ QUIERES COMER?</h1>
         <a href="busqueda.php" class="avanzado">Búsqueda Avanzada</a>
     </div>
     <div class="contH1">
@@ -132,7 +132,7 @@ session_start();
     <div class="backgroundContacto">
             <div class="shadowContainer">
             <div class="containerHeaderCont">
-             <h1 class="headerContacto">CONTÁCTENOS!</h1>
+             <h1 class="headerContacto" id="contacto">CONTÁCTENOS!</h1>
              <p class="parrIntroContacto">Llámanos, envíanos un correo electrónico o envíanos una carta. Nosotros estamos aquí para ayudarte en lo que podamos!</p>
              </div>
             <div class="containerContacto">

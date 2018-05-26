@@ -12,7 +12,14 @@ $queryBuscar = $mysqli->query($query);
 
 if ($queryBuscar) {
 
+
 	$fila = mysqli_fetch_array($queryBuscar);
+
+	if($fila['id_estado']==1){
+
+	
+
+
 
 	$_SESSION['nombre'] = $fila['nombre'];
 	$_SESSION['id_usuario'] = $fila['id_usuario'];
@@ -26,10 +33,10 @@ if ($queryBuscar) {
 
 	switch ($_SESSION['id_sexo']) {
 		case '1':
-			$_SESSION['sexo'] = 'mujer';
+			$_SESSION['sexo'] = 'Mujer';
 			break;
 		case '2':
-			$_SESSION['sexo'] = 'hombre';
+			$_SESSION['sexo'] = 'Hombre';
 			break;
 	}
 
@@ -54,9 +61,17 @@ if ($queryBuscar) {
 
 
 	//header('Location: index.php');
+} else {
+			echo "<script type='text/javascript'>alert('Usuario inactivo, comuníquese con nuestro departamento de Atención al cliente');
+		window.location.href = 'inicioSesion.html';</script>";
+}
+
+	
+
+
 
 } else {
-	die('ERROR: No se puede ejecutar query para insertar datos.'.$mysqli->error);
+	die('ERROR: No se pudo iniciar sesión, intente mas tarde por favor.'.$mysqli->error);
 }
 
 

@@ -71,7 +71,7 @@ session_start();
                 </div>
                    <div class="wrapperRes">
                        <div v-for="res in mejoresRestaurantes" v-if="busqueda == res.tipoRestaurante" class="container2">
-                            <div  class="wrapper3" v-on:click="newWindow()">
+                            <div  class="wrapper3" v-on:click="newWindow(res.id_rest)">
                                 <img v-bind:src="res.img" alt="" class="imgRes">
                                 <h1 class="hRes">{{ res.nombre }}</h1>
                                 <div class="contParrafo">
@@ -100,7 +100,7 @@ session_start();
                     </div>
                        <div class="wrapperRes">
                            <div v-for="res in mejoresRestaurantes" v-if="busqueda == res.estimadoPrecio" class="container2">
-                                <div  class="wrapper3" v-on:click="newWindow()">
+                                <div  class="wrapper3" v-on:click="newWindow(res.id_rest)">
                                     <img v-bind:src="res.img" alt="" class="imgRes">
                                     <h1 class="hRes">{{ res.nombre }}</h1>
                                     <div class="contParrafo">

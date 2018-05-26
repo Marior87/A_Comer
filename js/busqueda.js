@@ -22,8 +22,8 @@ xhr.onreadystatechange = function () {
                             busqueda: '1'
                             },
                         methods: {
-                            newWindow: function(){
-                                window.open('./../restaurante.html')
+                            newWindow: function(id){
+                                window.open('../A_Comer/restaurante.php?id='+id+'')
                             }
                         }
 
@@ -35,8 +35,8 @@ xhr.onreadystatechange = function () {
                             busqueda: '3'
                         },
                         methods: {
-                            newWindow: function(){
-                                window.open('./../restaurante.html')
+                            newWindow: function(id){
+                                window.open('../A_Comer/restaurante.php?id='+id+'')
                             }
                         }
                     })

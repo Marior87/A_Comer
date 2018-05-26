@@ -1,15 +1,19 @@
 <?php
 
 require 'inc/class-conexion.php';
+session_start();
+
+if($_SESSION['rol']!='cliente'){
+    header("Location: paginaPrincipal.php");
+}
 
 $conexion = new BD();
-$id_user  = 2; //Esto debe venir de la sesion.
+$id_user  = $_SESSION['id_usuario']; //Esto debe venir de la sesion.
 
 $user_active = $conexion->getDataUser($id_user);
 $restaurantes_favoritos = $conexion->getFavoriteRestaurant($id_user);
 
 $favoritos = unserialize($restaurantes_favoritos['restaurantes']);
-
 
  ?>
 
@@ -34,10 +38,23 @@ $favoritos = unserialize($restaurantes_favoritos['restaurantes']);
         </div>
         <div class="navegador" id="navegador">
             <div class="nav2">
-                <li class="menuItem"><a href="paginaPrincipal.html" class="menuLink2">Regresar a Inicio</a></li>
+                <li class="menuItem"><a href="paginaPrincipal.php" class="menuLink2">Regresar a Inicio</a></li>
                 <div class="loginWrapper">
-                    <li class="menuItem"><a href="inicioSesion.html" class="menuLink">Login</a></li>
-                    <li class="menuItem"><a href="registro.html" class="menuLink">Regístrate</a></li>
+                    <?php if (!isset($_SESSION['nombre'])){
+                        echo ('
+
+                        <li class="menuItem"><a href="inicioSesion.html" class="menuLink">Login</a></li>
+                        <li class="menuItem"><a href="registro.html" class="menuLink">Regístrate</a></li>');
+
+                    } else {
+
+                        echo ('
+                        <li class="menuItem"><a href="opciones.php" class="menuLink">Hola '.htmlentities($_SESSION['nombre']).'</a></li>
+                        <li class="menuItem"><a href="cerrarSesion.php" class="menuLink">Cerrar Sesión</a></li>');
+
+                    }
+
+                    ?>
                 </div>
             </div>
         </div>
@@ -50,7 +67,7 @@ $favoritos = unserialize($restaurantes_favoritos['restaurantes']);
                         <h1 class="nombreUsuario"><?php echo $user_active['nombre'] ?> <span> </span> <?php echo $user_active['apellido'] ?></h1>
                         <div class="contInfo">
                         <p class="infoUsuario"><b>Edad: </b><?php echo $user_active['edad'] ?></p>
-                        <p class="infoUsuario"><b>Sexo: </b>M<?php //echo $user_active['sexo'] ?></p>
+                        <p class="infoUsuario"><b>Sexo: </b><?php echo $_SESSION['sexo'] ?></p>
                         <p class="infoUsuario"><b>Direccion: </b><?php echo $user_active['direccion'] ?></p>
                         </div>
                     </div>
@@ -61,22 +78,32 @@ $favoritos = unserialize($restaurantes_favoritos['restaurantes']);
                 </div>
                 <div class="wrapperRes"  id="app-1">
                 <?php
-                  foreach ($favoritos  as $key => $id_restaurante) {
-                    $restaurant = $conexion->getRestaunrant($id_restaurante);
-                    ?>
+                    if ($favoritos){
+                        foreach ($favoritos  as $key => $id_restaurante) {
+                            $restaurant = $conexion->getRestaunrant($id_restaurante);
+                            //print_r($restaurant);
+                            
+                            $ruta = $restaurant["ruta_img"];
+                            $nombre = mb_convert_encoding($restaurant["nombre"],'UTF-8','ASCII');
+                            $tipo = mb_convert_encoding($restaurant["tipo"],'UTF-8','ASCII');
+                            $precio = (int)$restaurant["categoria_precio"];
 
-                       <div v-for="res in mejoresRestaurantes" class="container2">
+                            echo                        '<div v-for="res in mejoresRestaurantes" class="container2">
                             <div  class="wrapper3" v-on:click="newWindow(<?php echo $id_restaurante?>)">
-                                <img src="<?php echo $restaurant['ruta_img'] ?>" alt="" class="imgRes">
-                                <h1 class="hRes"><?php echo $restaurant['nombre'] ?></h1>
+                                <img src="'.$ruta.'" alt="" class="imgRes">
+                                <h1 class="hRes">'.$nombre.'</h1>
                                 <div class="contParrafo">
-                                <div v-for="n in res.precio">
-                                    <span><b>$</b></span>
-                                </div>
-                                <p class="pRes"><?php echo $restaurant['tipo'] ?></p>
+                                <p class="pRes">'.$tipo.'</p>
                                 </div>
                             </div>
-                        </div>
+                        </div>';
+                    } 
+                    } else {
+                        echo "Aun no tienes restaurantes agregados";
+
+                    ?>
+
+
 
                     <?php
                   }

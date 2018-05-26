@@ -1,6 +1,6 @@
 <?php
 require 'inc/class-restaurant.php';
-
+//session_start();
 
 //Pass id restaurant for URL: example: restaurante.php?id=1
 
@@ -11,9 +11,23 @@ if(isset($_GET['id'])){
   die();
 }
 
+
+      if(!isset($_SESSION['rol']) or $_SESSION['rol']!='cliente'){
+          echo "<script type='text/javascript'>alert('Para ver el detalle de los restaurantes, debe estar registrado');
+  window.location.href = 'registro.html';  </script>";
+
+
+        //header("Location: paginaPrincipal.php");
+    }
+
+
+
+
+
+
 $restaurant =  new Restaurant();
 $data_restaurant =  $restaurant->getDataRestaurant($id);
-$is_favorite     =  $restaurant->isFavoriteforUser(2,$id);
+$is_favorite     =  $restaurant->isFavoriteforUser($_SESSION['id_usuario'],$id);
 
 
 ?>
@@ -40,10 +54,23 @@ $is_favorite     =  $restaurant->isFavoriteforUser(2,$id);
         </div>
         <div class="navegador" id="navegador">
             <div class="nav2">
-                <li class="menuItem"><a href="paginaPrincipal.html" class="menuLink2">Regresar a Inicio</a></li>
+                <li class="menuItem"><a href="paginaPrincipal.php" class="menuLink2">Regresar a Inicio</a></li>
                 <div class="loginWrapper">
-                    <li class="menuItem"><a href="inicioSesion.html" class="menuLink">Login</a></li>
-                    <li class="menuItem"><a href="registro.html" class="menuLink">Regístrate</a></li>
+                    <?php if (!isset($_SESSION['nombre'])){
+                        echo ('
+
+                        <li class="menuItem"><a href="inicioSesion.html" class="menuLink">Login</a></li>
+                        <li class="menuItem"><a href="registro.html" class="menuLink">Regístrate</a></li>');
+
+                    } else {
+
+                        echo ('
+                        <li class="menuItem"><a href="opciones.php" class="menuLink">Hola '.htmlentities($_SESSION['nombre']).'</a></li>
+                        <li class="menuItem"><a href="cerrarSesion.php" class="menuLink">Cerrar Sesión</a></li>');
+
+                    }
+
+                    ?>
                 </div>
             </div>
         </div>
@@ -57,15 +84,11 @@ $is_favorite     =  $restaurant->isFavoriteforUser(2,$id);
                     <h1 class="nombreRest"><?php echo $data_restaurant['nombre']; ?></h1>
                     <p class="parrafoRest">
                         <p class="spanparr1"><b> Tipo: </b><?php echo $data_restaurant['tipo']; ?></p><br>
-                        <p class="spanparr2"><b>Descripción: </b> <?php echo $data_restaurant['descripcion']; ?></p><br>
+                        <p class="spanparr2"><b>Descripción: </b> <?php echo mb_convert_encoding($data_restaurant['descripcion'],'UTF-8','ASCII'); ?></p><br>
                         <p class="spanparr3"><b>Dirección:</b> <?php echo $data_restaurant['direccion']; ?></p><br>
                     <div class="dolar">
                         <span class="spanparr">
-                               <div class="dolar">
-                                   <div v-for="n in res.precio" >
-                                        <span><b> $</b></span>
-                                    </div>
-                                </div>
+
                         </span>
                     </p>
                     <input value="true" type="checkbox" id="like" <?php echo $is_favorite; ?>/>
@@ -79,6 +102,7 @@ $is_favorite     =  $restaurant->isFavoriteforUser(2,$id);
             </div>
     </div>
 </body>
+    <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
   jQuery(document).ready(function($) {
 

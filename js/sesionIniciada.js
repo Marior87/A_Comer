@@ -1,4 +1,4 @@
-var jsonRestFavoritos =  [{
+/*var jsonRestFavoritos =  [{
     nombre: 'Mi Ternerita Norte',
     tipo: 'Churrasqueria, Tex-mex',
     precio: 4,
@@ -14,7 +14,13 @@ var jsonUsuario =  [{
     edad: 22,
     sexo: 'masculino',
     direccion: 'Bella Vista con Santa Rita, Torre Europa 3'
-}]
+}]*/
+
+
+
+
+
+
 let app1 = new Vue({
     el: '#app-1',
     data: {

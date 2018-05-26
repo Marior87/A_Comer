@@ -24,7 +24,7 @@ xhr.onreadystatechange = function () {
                             },
                         methods: {
                             newWindow: function(id){
-                                 window.open('../restaurante.php?id='+id+'');
+                                 window.open('../A_Comer/restaurante.php?id='+id+'');
                             }
                         }
 
@@ -36,7 +36,7 @@ xhr.onreadystatechange = function () {
                         },
                         methods: {
                             newWindow: function(id){
-                               window.open('../restaurante.php?id='+id+'');
+                               window.open('../A_Comer/restaurante.php?id='+id+'');
                             }
                         }
                     })
@@ -47,7 +47,7 @@ xhr.onreadystatechange = function () {
                         },
                         methods: {
                             newWindow: function(id){
-                                 window.open('../restaurante.php?id='+id+'');
+                                 window.open('../A_Comer/restaurante.php?id='+id+'');
                             }
                         }
                     })
