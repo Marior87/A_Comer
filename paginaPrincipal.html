@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="utf-8">
 <head>
    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta charset="UTF-8">
@@ -19,25 +18,25 @@
         </div>
         <div class="navegador" id="navegador">
             <nav class="nav2">
-                <li class="menuItem"><a href="" class="menuLink">Inicio</a></li>
-                <li class="menuItem"><a href="" class="menuLink">Nosotros</a></li>
-                <li class="menuItem"><a href="" class="menuLink">Búsqueda</a></li>
-                <li class="menuItem"><a href="" class="menuLink">Contacto</a></li>
+                <li class="menuItem"><a href="#inicio" class="menuLink">Inicio</a></li>
+                <li class="menuItem"><a href="#nosotros" class="menuLink">Nosotros</a></li>
+                <li class="menuItem"><a href="#busqueda" class="menuLink">Búsqueda</a></li>
+                <li class="menuItem"><a href="#contacto" class="menuLink">Contacto</a></li>
                 <div class="loginWrapper">
-                    <li class="menuItem"><a href="" class="menuLink">Login</a></li>
-                    <li class="menuItem"><a href="" class="menuLink">Regístrate</a></li>
+                    <li class="menuItem"><a href="inicioSesion.html" class="menuLink">Login</a></li>
+                    <li class="menuItem"><a href="registro.html" class="menuLink">Regístrate</a></li>
                 </div>
             </nav>
         </div>
     </div>
-     <div class="contenedorPortada">
+     <div class="contenedorPortada" id="inicio">
         <img src="img/paginaPrincipal/portada1.png" alt="" class="imgPortada">
         <div class="conthPortada">
             <h1 class="headerPortada">A COMER!</h1>
             <p class="parrafoPortada">ELIGE TU RESTAURANTE</p>
         </div>
     </div>
-    <div class="contNosotros">
+    <div class="contNosotros" id="nosotros">
             <div class="contTexto">
                 <h1 class="headerNosotros"><span>¿</span>QUIENES SOMOS<span>?</span></h1>
                 <p class="parrafoNosotros"><span>A Comer!</span> Nace de la necesidad de las personas en medio de la ola de cafés y restaurantes en la ciudad por eso creamos un lugar para recomendar a dónde ir, pero que te mostrara las cosas en orden, lo que está cerca de ti y exactamente que vende.</p>
@@ -49,7 +48,7 @@
     </div>
     <img class="imgBusqueda" src="img/paginaPrincipal/busqueda.png" alt="">
     <div class="contenedorBusqueda">
-        <h1 class="headerBusqueda">¿QUÉ QUIERES COMER?</h1>
+        <h1 class="headerBusqueda" id="busqueda">¿QUÉ QUIERES COMER?</h1>
         <a href="busqueda.html" class="avanzado">Búsqueda Avanzada</a>
     </div>
     <div class="contH1">
@@ -57,11 +56,11 @@
     </div>
     <div class="wrapperRes"  id="app-1">
        <div v-for="res in mejoresRestaurantes" class="container2">
-            <div  class="wrapper3" v-on:click="newWindow()">
-                <img v-bind:src="res.ruta_img" alt="" class="imgRes">
+            <div  class="wrapper3" v-on:click="newWindow(res.id_rest)">
+                <img v-bind:src="res.img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">
-                <div v-for="n in parseInt(res.categoria_precio)">
+                <div v-for="n in res.precio">
                     <span><b>$</b></span>
                 </div>
                 <p class="pRes">{{ res.tipo }}</p>
@@ -73,12 +72,12 @@
             <h1 class="infoH1">TOP RESTAURANTES COMIDA RÁPIDA<span>by A COMER!</span></h1>
     </div>
     <div class="wrapperRes"  id="app-2">
-       <div v-for="res in mejoresRestaurantes" v-if="parseInt(res.id_categoria_rest) == 2" class="container2">
-            <div  class="wrapper3" v-on:click="newWindow()">
-                <img v-bind:src="res.ruta_img" alt="" class="imgRes">
+       <div v-for="res in mejoresRestaurantes" v-if="res.tipoRestaurante == 2" class="container2">
+            <div  class="wrapper3" v-on:click="newWindow(res.id_rest)">
+                <img v-bind:src="res.img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">
-                <div v-for="n in parseInt(res.categoria_precio)">
+                <div v-for="n in res.precio">
                     <span><b>$</b></span>
                 </div>
                 <p class="pRes">{{ res.tipo }}</p>
@@ -90,12 +89,12 @@
             <h1 class="infoH1">TOP RESTAURANTES CON MEJORES PRECIOS<span>by A COMER!</span></h1>
     </div>
     <div class="wrapperRes"  id="app-3">
-       <div v-for="res in mejoresRestaurantes" v-if="parseInt(res.categoria_precio) < 4" class="container2">
-            <div  class="wrapper3" v-on:click="newWindow()">
-                <img v-bind:src="res.ruta_img" alt="" class="imgRes">
+       <div v-for="res in mejoresRestaurantes" v-if="res.precio < 4" class="container2">
+            <div  class="wrapper3" v-on:click="newWindow(res.id_rest)">
+                <img v-bind:src="res.img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">
-                <div v-for="n in parseInt(res.categoria_precio)">
+                <div v-for="n in res.precio">
                     <span><b>$</b></span>
                 </div>
                 <p class="pRes">{{ res.tipo }}</p>
@@ -106,7 +105,7 @@
     <div class="backgroundContacto">
             <div class="shadowContainer">
             <div class="containerHeaderCont">
-             <h1 class="headerContacto">CONTÁCTENOS!</h1>
+             <h1 class="headerContacto" id="contacto">CONTÁCTENOS!</h1>
              <p class="parrIntroContacto">Llámanos, envíanos un correo electrónico o envíanos una carta. Nosotros estamos aquí para ayudarte en lo que podamos!</p>
              </div>
             <div class="containerContacto">
@@ -129,6 +128,7 @@
                    <span>Todos los derechos reservados. Hecho por Diplomado URBE.</span>
                 </div>
         </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="js/paginaPrincipal.js"></script>
 </body>

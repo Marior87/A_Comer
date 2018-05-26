@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda Avanzada</title>
+    <link rel="stylesheet" href="css/fonts/Fontastic/styles.css">
+<link rel="stylesheet" href="css/busqueda.css">
+</head>
+<body>
+    <div class="navegadorWrapper">
+        <div class="logoWrapper">
+            <img src="img/logo.png" alt="" class="logo">
+        </div>
+        <div class="contMenu">
+            <input type="checkbox" id="menu">
+            <label for="menu" class="icon-bars"></label>
+        </div>
+        <div class="navegador" id="navegador">
+            <div class="nav2">
+                <li class="menuItem"><a href="paginaPrincipal.html" class="menuLink2">Regresar a Inicio</a></li>
+                <div class="loginWrapper">
+                    <li class="menuItem"><a href="inicioSesion.html" class="menuLink">Login</a></li>
+                    <li class="menuItem"><a href="registro.html" class="menuLink">Regístrate</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contenedorBusqueda">
+      <div class="busquedaWrapper">
+           <h1 class="avanzadaHeader">BÚSQUEDA AVANZADA</h1>
+            <div class="contPref">
+                <div class="contRadio">
+                  <h2 class="headerRadio">Según el tipo de Comida y Restaurante</h2>
+            <div class="contFinal" id="app-1">
+                <div class="radio">
+                       <input type="radio" id="one" name="tipo" value="1" v-model="busqueda">
+                        <label class="radio-label" for="one">Restaurantes Elegantes</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="two" value="3" name="tipo" v-model="busqueda" >
+                    <label  class="radio-label" for="two">Café y Repostería</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="three" value="2" name="tipo" v-model="busqueda">
+                    <label  class="radio-label"for="three">Comida Rápida</label>
+                </div>
+                   <div class="wrapperRes">
+                       <div v-for="res in mejoresRestaurantes" v-if="busqueda == res.tipoRestaurante" class="container2">
+                            <div  class="wrapper3" v-on:click="newWindow()">
+                                <img v-bind:src="res.img" alt="" class="imgRes">
+                                <h1 class="hRes">{{ res.nombre }}</h1>
+                                <div class="contParrafo">
+                                    <div v-for="n in res.precio">
+                                        <span><b>$</b></span>
+                                    </div>
+                                    <p class="pRes">{{ res.tipo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="headerRadio">Según el precio que se adapte a ti</h2>
+                <div class="contFinal" id="app-2">
+                    <div class="radio">
+                           <input type="radio" id="uno" name="precio" value="1" v-model="busqueda">
+                            <label class="radio-label" for="uno">Precio Bajo</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="dos" value="2" name="precio" v-model="busqueda" >
+                        <label  class="radio-label" for="dos">Precio Medio</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="tres" value="3" name="precio" v-model="busqueda">
+                        <label  class="radio-label"for="tres">Precio Alto</label>
+                    </div>
+                       <div class="wrapperRes">
+                           <div v-for="res in mejoresRestaurantes" v-if="busqueda == res.estimadoPrecio" class="container2">
+                                <div  class="wrapper3" v-on:click="newWindow()">
+                                    <img v-bind:src="res.img" alt="" class="imgRes">
+                                    <h1 class="hRes">{{ res.nombre }}</h1>
+                                    <div class="contParrafo">
+                                        <div v-for="n in res.precio">
+                                            <span><b>$</b></span>
+                                        </div>
+                                        <p class="pRes">{{ res.tipo }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/busqueda.js"></script>
+</body>
+</html>
