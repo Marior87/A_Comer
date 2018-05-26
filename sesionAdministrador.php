@@ -34,7 +34,7 @@ session_start();
         </div>
         <div class="navegador" id="navegador">
             <div class="nav2">
-                <li class="menuItem"><a href="paginaPrincipal.html" class="menuLink2">Regresar a Inicio</a></li>
+                <li class="menuItem"><a href="paginaPrincipal.php" class="menuLink2">Regresar a Inicio</a></li>
                 <div class="loginWrapper">
                     <?php 
                         echo ('

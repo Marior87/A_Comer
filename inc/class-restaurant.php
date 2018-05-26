@@ -15,11 +15,7 @@ class Restaurant
 
   public function getDataRestaurant($id)
   {
-    $restaurante = $this->BD->getRestaunrant(3);
-
-
-    var_dump($restaurante);
-
+    return $this->BD->getRestaunrant($id);
   }
 
   public function getFavoriteRestaurantes($id_user)
@@ -34,10 +30,10 @@ class Restaurant
 
   }
 
-  public function setFavoriteRestaurante($id_restaurant)
+  public function setFavoriteRestaurante($id_restaurant,$id_user)
   {
     //Traemos el id del usuario de la session abierta.
-    $id_user = 2;
+    $id_user = $id_user;
 
     //Nos traemos los restaurantes favoritos de ese usuario
 
@@ -46,7 +42,7 @@ class Restaurant
 
     if($favoritos == false){
       $lista_favoritos = [];
-    }else {
+    }else  {
       $lista_favoritos = $favoritos;
     }
 
@@ -54,7 +50,7 @@ class Restaurant
 
     $lista_favoritos = serialize($lista_favoritos);
 
-    if($favoritos == false){
+    if($favoritos === false){
       $this->BD->insertFavoriteRestaurant($id_user,$lista_favoritos);
     }else{
       $this->BD->updateFavoriteRestaurant($id_user,$lista_favoritos);
@@ -63,10 +59,10 @@ class Restaurant
 
   }
 
-  public function deleteFavoriteRestaurante($id_restaurant)
+  public function deleteFavoriteRestaurante($id_restaurant,$id_user)
   {
     //Traemos el id del usuario de la session abierta.
-    $id_user = 2;
+
 
     $favoritos = $this->getFavoriteRestaurantes($id_user);
 
@@ -86,13 +82,20 @@ class Restaurant
 
   }
 
+  public function isFavoriteforUser($id_user,$id_restaurant)
+  {
+    $userf = $this->getFavoriteRestaurantes($id_user);
+
+    if($userf === false){
+      return "0";
+    }
+
+    if (in_array($id_restaurant, $userf )){
+      return "checked";
+    }else {
+      return "0";
+    }
+
+  }
+
 }
-
-$restaurante = new Restaurant();
-
-// $restaurante->getDataRestaurant(2);
-// $restaurante->setFavoriteRestaurante(66623);
-// $restaurante->setFavoriteRestaurante(66625);
-// $restaurante->setFavoriteRestaurante(66624);
-
-$restaurante->deleteFavoriteRestaurante(66623);

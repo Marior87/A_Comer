@@ -12,6 +12,7 @@ checkbox.addEventListener('change', function(event) {
 
 
 
+
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
                 if(this.readyState == 4 && this.status == 200) {
@@ -22,8 +23,8 @@ xhr.onreadystatechange = function () {
                             mejoresRestaurantes:   json
                             },
                         methods: {
-                            newWindow: function(id_rest){
-                                window.open('./../restaurante.html?id='+id_rest)
+                            newWindow: function(id){
+                                 window.open('../restaurante.php?id='+id+'');
                             }
                         }
 
@@ -34,8 +35,8 @@ xhr.onreadystatechange = function () {
                             mejoresRestaurantes: json
                         },
                         methods: {
-                            newWindow: function(id_rest){
-                                window.open('./../restaurante.html?id='+id_rest)
+                            newWindow: function(id){
+                               window.open('../restaurante.php?id='+id+'');
                             }
                         }
                     })
@@ -45,8 +46,8 @@ xhr.onreadystatechange = function () {
                             mejoresRestaurantes: json
                         },
                         methods: {
-                            newWindow: function(id_rest){
-                                window.open('./../restaurante.html?id='+id_rest)
+                            newWindow: function(id){
+                                 window.open('../restaurante.php?id='+id+'');
                             }
                         }
                     })
@@ -57,7 +58,16 @@ xhr.open("GET", "restaurantes.php", true);
 xhr.send();
 
 
-
+$(document).ready(function(){
+    $('.menuLink').click(function(e){
+        var linkHref = $(this).attr('href');
+        $('html, body').animate({
+            scrollTop: $(linkHref).offset().top
+        });
+        $("#menu").prop("checked", false);
+        e.preventDefault();
+    })
+ });
 
 
 

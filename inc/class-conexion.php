@@ -1,6 +1,9 @@
 
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
   /**
    *
    */
@@ -10,8 +13,8 @@
     function __construct()
     {
       $host     = "localhost";
-      $user     = "root";
-      $password = "6419148";
+      $user     = "WebM";
+      $password = "1234";
       $bd_name  = "AComer";
 
       $this->mysqli = new mysqli($host,$user,$password,$bd_name);
@@ -42,45 +45,58 @@
 
       $queryBuscar = $this->mysqli->query($query);
 
-      if( ! mysqli_num_rows($queryBuscar) ){
-        return false;
+      //if(mysqli_num_rows($queryBuscar)>0)
+      if($queryBuscar)
+      {
+        $favoritos = mysqli_fetch_array($queryBuscar);
+        return $favoritos;
       }
+      return false;
 
-      $favoritos = mysqli_fetch_array($queryBuscar);
 
-      return $favoritos;
 
     }
 
     public function insertFavoriteRestaurant($id_user,$data)
     {
 
-      $query = "INSERT INTO restaurant_favoritos (id,id_user,restaurantes) VALUES (NULL,{$id_user},'$data');";
-
-      if ($this->mysqli->query($query) === TRUE) {
-          echo "New record created successfully";
-      } else {
-          echo "Error: " . $query . "<br>" . $this->mysqli->error;
-      }
+      $query = "INSERT INTO restaurant_favoritos (id,id_usuario,restaurantes) VALUES (NULL,{$id_user},'$data');";
+      $this->mysqli->query($query);
+      // if ($this->mysqli->query($query) === TRUE) {
+      //     echo "New record created successfully";
+      // } else {
+      //     echo "Error: " . $query . "<br>" . $this->mysqli->error;
+      // }
 
     }
 
 
     public function updateFavoriteRestaurant($id_user,$data)
     {
-        $query = "UPDATE restaurant_favoritos SET restaurantes= '$data' WHERE id_user = $id_user";
-
-        if ($this->mysqli->query($query) === TRUE) {
-            echo "Record Update";
-        } else {
-            echo "Error: " . $query . "<br>" . $this->mysqli->error;
-        }
+        $query = "UPDATE restaurant_favoritos SET restaurantes= '$data' WHERE id_usuario = $id_user";
+        $this->mysqli->query($query);
+        // if ($this->mysqli->query($query) === TRUE) {
+        //     echo "Record Update";
+        // } else {
+        //     echo "Error: " . $query . "<br>" . $this->mysqli->error;
+        // }
 
     }
+
+    public function getDataUser($id)
+    {
+      $query = "SELECT * FROM usuarios where id_usuario = '{$id}' ";
+
+      $queryBuscar = $this->mysqli->query($query);
+
+      $datauser = mysqli_fetch_array($queryBuscar);
+
+      return $datauser;
+    }
+
   }
 
-  // $conexion = new BD();
-  // var_dump($conexion->getFavoriteRestaurant(3));
+
 
 
 ?>
