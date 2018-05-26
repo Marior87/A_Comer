@@ -82,7 +82,7 @@ session_start();
     </div>
     <div class="wrapperRes"  id="app-1">
        <div v-for="res in mejoresRestaurantes" class="container2">
-            <div  class="wrapper3" v-on:click="newWindow()">
+            <div  class="wrapper3" v-on:click="newWindow(res.id_rest)">
                 <img v-bind:src="res.ruta_img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">
@@ -99,7 +99,7 @@ session_start();
     </div>
     <div class="wrapperRes"  id="app-2">
        <div v-for="res in mejoresRestaurantes" v-if="parseInt(res.id_categoria_rest) == 2" class="container2">
-            <div  class="wrapper3" v-on:click="newWindow()">
+            <div  class="wrapper3" v-on:click="newWindow(res.id_rest)">
                 <img v-bind:src="res.ruta_img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">
@@ -116,7 +116,7 @@ session_start();
     </div>
     <div class="wrapperRes"  id="app-3">
        <div v-for="res in mejoresRestaurantes" v-if="parseInt(res.categoria_precio) < 4" class="container2">
-            <div  class="wrapper3" v-on:click="newWindow()">
+            <div  class="wrapper3" v-on:click="newWindow(res.id_rest)">
                 <img v-bind:src="res.ruta_img" alt="" class="imgRes">
                 <h1 class="hRes">{{ res.nombre }}</h1>
                 <div class="contParrafo">

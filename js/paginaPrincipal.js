@@ -22,8 +22,8 @@ xhr.onreadystatechange = function () {
                             mejoresRestaurantes:   json
                             },
                         methods: {
-                            newWindow: function(){
-                                window.open('./../restaurante.html')
+                            newWindow: function(id_rest){
+                                window.open('./../restaurante.html?id='+id_rest)
                             }
                         }
 
@@ -34,8 +34,8 @@ xhr.onreadystatechange = function () {
                             mejoresRestaurantes: json
                         },
                         methods: {
-                            newWindow: function(){
-                                window.open('./../restaurante.html')
+                            newWindow: function(id_rest){
+                                window.open('./../restaurante.html?id='+id_rest)
                             }
                         }
                     })
@@ -45,8 +45,8 @@ xhr.onreadystatechange = function () {
                             mejoresRestaurantes: json
                         },
                         methods: {
-                            newWindow: function(){
-                                window.open('./../restaurante.html')
+                            newWindow: function(id_rest){
+                                window.open('./../restaurante.html?id='+id_rest)
                             }
                         }
                     })

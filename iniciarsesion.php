@@ -21,6 +21,7 @@ if ($queryBuscar) {
 	$_SESSION['direccion'] = $fila['direccion'];
 	$_SESSION['edad'] = $fila['edad'];
 	$_SESSION['id_sexo'] = $fila['id_sexo'];
+	$_SESSION['id_rol'] = $fila['id_rol'];
 
 
 	switch ($_SESSION['id_sexo']) {
@@ -32,12 +33,22 @@ if ($queryBuscar) {
 			break;
 	}
 
+	switch ($_SESSION['id_rol']) {
+		case '1':
+			$_SESSION['rol'] = 'cliente';
+			break;
+		case '2':
+			$_SESSION['rol'] = 'administrador';
+			break;
+	}
+
+
 	if (!$fila['usuario']==""){
 
 		echo "<script type='text/javascript'>window.location.href = 'paginaPrincipal.php';</script>";
 	} else {
-		echo "<script type='text/javascript'>alert('El usuario no existe');
-		window.location.href = 'registrarUsr.php';</script>";
+		echo "<script type='text/javascript'>alert('Usuario o contraseña inválidos, por favor intente de nuevo');
+		window.location.href = 'inicioSesion.html';</script>";
 	}
 
 
